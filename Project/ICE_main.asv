@@ -21,13 +21,13 @@ L0 = Load_Init_Water_Drop_Ice_Flat(P);
 %L0=Load_Init_Water_Flat_Ice_Flat_Eq(P);
 
 R = RandStream.create('mrg32k3a');
-S=monte_carlo_sim(@Sim_Euler_SPDE_Full,P,L0,D,50000,8);
+%S=monte_carlo_sim(@Sim_Euler_SPDE_Full,P,L0,D,50000,8);
 %S=Sim_Euler_PDE_Full_PS_D(P,L0,D,R);
 %S=Sim_Euler_PDE_Full(P,L0,D,R);
 %S=Sim_RK4_PDE_Full_PS_D(P,L0,D,R);
 %S=Sim_Euler_SPDE_Full_Rsl_PS_D(P,L0,D,R);
 %S=Sim_Euler_SPDE_Full(P,L0,D,R);
-%S=Sim_Euler_SPDE_Full_PS_D(P,L0,D,R);
+S=Sim_Euler_SPDE_Full_PS_D(P,L0,D,R);
 %this runs up a time (in terms of t/tau, like in the paper)
 
 %plot_g(S.P);

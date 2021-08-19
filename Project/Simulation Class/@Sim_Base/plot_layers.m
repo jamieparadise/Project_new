@@ -28,4 +28,8 @@ xlabel('$k_{1}x$','FontSize',18,'interpreter','latex')
 ylabel('$k_{1}L$','FontSize',18,'interpreter','latex')
 axis([0 2500 (min_height_ice*P.k1-1) (max_height_water*P.k1+1)])
 title("${t/\tau}=$" + num2str(plot_t,'%.1e'),'interpreter','latex');
+
+avg = mean(Llv-Lsl);
+txt = ['Average film height: ' num2str(avg*P.k1) ' k1'];
+text(750,0.5,txt)
 end

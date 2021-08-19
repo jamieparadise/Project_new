@@ -1,4 +1,4 @@
-classdef PDE_Full_PS_D < PS_D
+classdef PDE_Full_PS_D
     %ODE Summary of this class goes here
     %   Detailed explanation goes here
     

@@ -4,6 +4,7 @@ classdef SPDE_Full_Rsl_PS_D< PS_D
     
     properties
         pde_name = 'SPDE_Full_Rsl_PS'
+        Noise_Str = 2e-6;
     end
     
     methods
@@ -20,8 +21,7 @@ classdef SPDE_Full_Rsl_PS_D< PS_D
             Lsl=S.L(P.Nx+1:2*P.Nx,1);
             h=(Llv-Lsl); % h is also temporary
             
-            Noise_Str = 2e-6;
-            dW = Noise_Str * randn(S.rand_stream,P.Nx,1)*sqrt(1/(P.Nx*P.dt));
+            dW = S.Noise_Str * randn(S.rand_stream,P.Nx,1)*sqrt(1/(P.Nx*P.dt));
             
             gsr_prime =  -P.C2*P.k2*exp(-P.k2*h) ...
                 +P.C1*exp(-P.k1*h).*(P.q0*sin(P.q0*h + P.alpha) + P.k1*cos(P.q0*h + P.alpha));

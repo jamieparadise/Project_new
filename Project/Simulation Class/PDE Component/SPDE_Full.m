@@ -4,6 +4,7 @@ classdef SPDE_Full < D_Matrix
     
     properties
         pde_name ='SPDE_Full'
+        Noise_Str=1e14;
     end
     
     methods
@@ -20,8 +21,7 @@ classdef SPDE_Full < D_Matrix
             Llv=S.L(1:P.Nx,1);
             Lsl=S.L(P.Nx+1:2*P.Nx,1);
             
-            Noise_Str = 1e13;
-            dW = Noise_Str *randn(S.rand_stream,P.Nx,1)*sqrt(P.dt/P.Nx);
+            dW = S.Noise_Str *randn(S.rand_stream,P.Nx,1)*sqrt(P.dt/P.Nx);
     
             h=(Llv-Lsl); % h is also temporary
             gsr_prime =  -P.C2*P.k2*exp(-P.k2*h) ...
